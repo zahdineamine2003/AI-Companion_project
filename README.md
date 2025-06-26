@@ -6,8 +6,8 @@
 ---
 
 ## 📸 Screenshots / Interface Preview
-
-*(Add screenshots or screen recordings of your web/desktop UI below this line)*
+**🔵 Welcome Screen**  
+![Welcome Screen](https://github.com/zahdineamine2003/AI-Companion_project/blob/39ec8917782ca54f6338b7cb41cd4546efe05613/cyber_friend/welcome.png?raw=true)
 
 ---
 
