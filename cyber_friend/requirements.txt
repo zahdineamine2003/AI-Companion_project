@@ -1,0 +1,10 @@
+PyQt5
+openai
+pyttsx3
+SpeechRecognition
+vosk
+textblob
+nltk
+sqlcipher3
+cryptography
+matplotlib 

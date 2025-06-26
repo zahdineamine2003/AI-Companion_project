@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Companion - Cyber Friend</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+<!-- Welcome Page -->
+<div id="welcome-page" class="welcome-page pro-welcome">
+    <div class="welcome-left" style="width: 50%;">
+        <!-- White animated background effects -->
+        <div class="welcome-emoji-bg">
+            <div class="welcome-effect welcome-effect1"></div>
+            <div class="welcome-effect welcome-effect2"></div>
+            <div class="welcome-effect welcome-effect3"></div>
+            <div class="welcome-effect welcome-effect4"></div>
+            <div class="welcome-effect welcome-effect5"></div>
+            <div class="welcome-effect welcome-effect6"></div>
+            <div class="welcome-effect welcome-effect7"></div>
+            <div class="welcome-effect welcome-effect8"></div>
+            <div class="welcome-effect welcome-effect9"></div>
+            <div class="welcome-effect welcome-effect10"></div>
+            <div class="welcome-effect welcome-effect11"></div>
+            <div class="welcome-effect welcome-effect12"></div>
+            <div class="welcome-effect welcome-effect13"></div>
+            <div class="welcome-effect welcome-effect14"></div>
+            <div class="welcome-effect welcome-effect15"></div>
+        </div>
+        <div class="welcome-content">
+            <h1>Welcome to <span class="brand">AI Companion</span></h1>
+            <p class="subtitle">
+                <span class="subtitle-line1">Your caring, empathetic AI friend for support and wellness.</span>
+                <span class="subtitle-line2">Start your journey to a happier, healthier you.</span>
+            </p>
+            <button id="get-started-btn" class="get-started-btn pro-btn">Get Started</button>
+        </div>
+    </div>
+    <div class="welcome-right" style="width: 50%; display: flex; align-items: center; justify-content: center;">
+        <video id="welcome-video" src="/static/avatars/welcome_man.mp4" autoplay loop muted playsinline style="max-width: 100%; max-height: 80vh; border-radius: 24px;"></video>
+    </div>
+</div>
+
+<!-- Avatar Setup Page -->
+<div id="avatar-setup-page" class="avatar-setup-page emoji-bg" style="display: none;">
+    <div class="avatar-setup-form-card">
+        <form id="avatar-setup-form">
+            <h2 class="setup-form-title">Set Up Your AI Companion</h2>
+            <div class="form-group">
+                <label for="user-name">Your Name</label>
+                <input type="text" id="user-name" placeholder="Enter your name" required>
+            </div>
+            <div class="form-group">
+                <label for="setup-name">Companion Name</label>
+                <input type="text" id="setup-name" placeholder="Enter a name for your companion" required>
+            </div>
+            <div class="form-group">
+                <label>Gender</label>
+                <div class="gender-buttons">
+                    <button type="button" class="gender-btn active" data-gender="male">Male</button>
+                    <button type="button" class="gender-btn" data-gender="female">Female</button>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Choose Avatar</label>
+                <div class="avatar-options">
+                    <div class="avatar-option active" data-avatar="male-avatar">
+                        <div class="animated-avatar male-avatar">
+                            <img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@latest/assets/svg/1f468.svg" alt="Male Avatar" class="avatar-gif">
+                        </div>
+                    </div>
+                    <div class="avatar-option" data-avatar="female-avatar">
+                        <div class="animated-avatar female-avatar">
+                            <img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@latest/assets/svg/1f469.svg" alt="Female Avatar" class="avatar-gif">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button type="submit" class="continue-btn setup-blue-btn">Continue</button>
+        </form>
+    </div>
+    <!-- Animated emoji background -->
+    <div class="emoji-anim-bg">
+        <span class="emoji emoji1">😄</span>
+        <span class="emoji emoji2">💬</span>
+        <span class="emoji emoji3">🤗</span>
+        <span class="emoji emoji4">🧠</span>
+        <span class="emoji emoji5">🌈</span>
+        <span class="emoji emoji6">✨</span>
+        <span class="emoji emoji7">🌟</span>
+        <span class="emoji emoji8">💭</span>
+        <span class="emoji emoji9">🎯</span>
+        <span class="emoji emoji10">💡</span>
+        <span class="emoji emoji11">🎨</span>
+        <span class="emoji emoji12">🚀</span>
+        <span class="emoji emoji13">🎪</span>
+        <span class="emoji emoji14">🎭</span>
+        <span class="emoji emoji15">🎪</span>
+    </div>
+</div>
+
+<!-- Main App -->
+<div id="main-app" class="container" style="display: none;">
+    <aside class="sidebar pro-sidebar">
+        <div class="avatar-section">
+            <div id="sidebar-avatar" class="animated-avatar male-avatar">
+                <img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@latest/assets/svg/1f468.svg" alt="Male Avatar" class="avatar-gif">
+            </div>
+            <div id="sidebar-name">Your Friend</div>
+        </div>
+        <nav>
+            <ul>
+                <li class="active" id="nav-chat">Chat</li>
+                <li id="nav-mood">Mood</li>
+                <li id="nav-journal">Journal</li>
+                <li id="nav-avatar">Avatar</li>
+            </ul>
+        </nav>
+    </aside>
+    <main class="main-content pro-main-content">
+        <!-- Chat Section -->
+        <section id="chat-section" class="section active pro-section">
+            <div class="chat-header pro-header">AI Companion</div>
+            <div class="chat-area" id="chat-area"></div>
+            <form id="chat-form" autocomplete="off">
+                <button type="button" class="emoji-picker-btn" id="emoji-picker-btn" title="Pick an emoji">😊</button>
+                <input type="text" id="chat-input" placeholder="Type your message..." required>
+                <button type="submit" class="pro-btn">Send</button>
+                <div id="emoji-popover" class="emoji-popover" style="display:none;"></div>
+            </form>
+        </section>
+        <!-- Mood Section -->
+        <section id="mood-section" class="section pro-section" style="padding:0;background:#f5f5f7;min-height:100vh;">
+            <div class="mood-dashboard-container" style="min-height:100vh;">
+                <main class="main-content" style="flex:1;display:flex;flex-direction:column;background:white;">
+                    <header class="header" style="padding:20px 24px;border-bottom:1px solid #e5e7eb;background:white;">
+                        <h1 class="page-title" style="font-size:24px;font-weight:600;color:#374151;margin-bottom:8px;">Mood Tracker</h1>
+                        <p class="page-subtitle" style="font-size:16px;color:#6b7280;">Track your daily emotions and well-being</p>
+                    </header>
+                    <div class="content" style="flex:1;padding:24px;overflow-y:auto;">
+                        <!-- Mood Selection Row -->
+                        <div class="mood-section mood-selector-frame" style="background:white;border-radius:16px;margin-bottom:24px;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1.5px solid #e5e7eb;">
+                            <h2 class="section-title" style="font-size:20px;font-weight:600;color:#374151;margin-bottom:16px;">How are you feeling today?</h2>
+                            <div class="mood-selector" id="moodSelector">
+                                <div class="mood-option" data-mood="Amazing"><div class="mood-emoji">🤩</div><div class="mood-label">Amazing</div></div>
+                                <div class="mood-option" data-mood="Happy"><div class="mood-emoji">😊</div><div class="mood-label">Happy</div></div>
+                                <div class="mood-option" data-mood="Good"><div class="mood-emoji">🙂</div><div class="mood-label">Good</div></div>
+                                <div class="mood-option" data-mood="Neutral"><div class="mood-emoji">😐</div><div class="mood-label">Neutral</div></div>
+                                <div class="mood-option" data-mood="Sad"><div class="mood-emoji">😢</div><div class="mood-label">Sad</div></div>
+                                <div class="mood-option" data-mood="Anxious"><div class="mood-emoji">😰</div><div class="mood-label">Anxious</div></div>
+                            </div>
+                            <textarea class="mood-note" id="moodNote" placeholder="What's on your mind? (optional)" style="width:100%;padding:12px 16px;border:2px solid #e5e7eb;border-radius:12px;font-size:15px;outline:none;transition:all 0.2s;resize:vertical;min-height:80px;margin-bottom:16px;"></textarea>
+                            <button class="save-mood-btn" id="saveMoodBtn" disabled style="background:#10b981;color:white;border:none;padding:12px 24px;border-radius:12px;font-size:16px;font-weight:600;cursor:pointer;transition:all 0.2s;width:100%;">Save Mood Entry</button>
+                        </div>
+                        <!-- Mood Stats & Recent Entries Section -->
+                        <div class="container" style="max-width:1200px;margin:0 auto;display:flex;flex-direction:column;gap:2rem;">
+                            <!-- Stats Section -->
+                            <div class="stats-section">
+                                <h2 class="section-title">📊 Your Mood Stats</h2>
+                                <div class="stats-grid">
+                                    <div class="stat-card">
+                                        <div class="stat-number" id="totalEntries">0</div>
+                                        <div class="stat-label">Total Entries</div>
+                                    </div>
+                                    <div class="stat-card">
+                                        <div class="stat-number" id="currentStreak">0</div>
+                                        <div class="stat-label">Day Streak</div>
+                                    </div>
+                                    <div class="stat-card">
+                                        <div class="stat-number" id="avgMood"><span class="stat-icon">-</span></div>
+                                        <div class="stat-label">Most Common</div>
+                                    </div>
+                                    <div class="stat-card">
+                                        <div class="stat-number" id="thisWeek">0</div>
+                                        <div class="stat-label">This Week</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Recent Entries Section -->
+                            <div class="recent-section">
+                                <h2 class="section-title">📝 Recent Entries</h2>
+                                <div class="entries-list" id="moodHistory">
+                                    <!-- JS will populate entries here -->
+                                </div>
+                                <button class="view-all-btn">View All Entries</button>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+            </div>
+        </section>
+        <!-- Journal Section -->
+        <section id="journal-section" class="section pro-section">
+            <div class="section-header pro-header">Daily Journal</div>
+            <textarea id="journal-text" placeholder="Write your thoughts..."></textarea>
+            <button id="save-journal" class="pro-btn">Save Entry</button>
+        </section>
+        <!-- Avatar Section -->
+        <section id="avatar-section" class="section pro-section">
+            <div class="section-header pro-header">Avatar Setup</div>
+            <form id="avatar-form">
+                <label>Name: <input type="text" id="avatar-name" required></label><br>
+                <label>Gender:
+                    <select id="avatar-gender">
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                    </select>
+                </label><br>
+                <label>Avatar:
+                    <select id="avatar-select">
+                        <option value="male-avatar">Male</option>
+                        <option value="female-avatar">Female</option>
+                    </select>
+                </label><br>
+                <div id="avatar-preview" class="animated-avatar male-avatar">
+                    <img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@latest/assets/svg/1f468.svg" alt="Male Avatar" class="avatar-gif">
+                </div>
+                <button type="submit" class="pro-btn">Save Avatar</button>
+            </form>
+        </section>
+    </main>
+</div>
+<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+<script src="/static/js/main.js"></script>
+<script>
+// Load Lottie animation
+const lottieContainer = document.querySelector('.welcome-illustration');
+lottieContainer.innerHTML = `<lottie-player src='https://assets7.lottiefiles.com/packages/lf20_kyu7xb1v.json' background='transparent' speed='1' style='width:320px;height:320px;' loop autoplay></lottie-player>`;
+</script>
+<!-- Chart.js CDN -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<style>
+.mood-selector {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 36px;
+  margin-bottom: 24px;
+}
+.mood-option {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 22px 28px;
+  border: 2.5px solid #e5e7eb;
+  border-radius: 18px;
+  cursor: pointer;
+  background: white;
+  transition: all 0.18s cubic-bezier(.4,2,.6,1);
+  font-size: 20px;
+  box-shadow: 0 2px 8px rgba(16,185,129,0.04);
+}
+.mood-option.selected {
+  border: 2.5px solid #10b981;
+  background: #d1fae5;
+  box-shadow: 0 4px 16px rgba(16,185,129,0.12);
+  transform: scale(1.08);
+}
+.mood-option:hover {
+  border: 2.5px solid #10b981;
+  background: #f0fdf4;
+}
+.mood-emoji {
+  font-size: 2.7em;
+  margin-bottom: 8px;
+}
+.mood-label {
+  font-size: 17px;
+  color: #22223b;
+  font-weight: 600;
+}
+.mood-section.mood-selector-frame {
+  max-width: 1000px;
+  min-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 40px 48px 32px 48px;
+}
+.stats-section {
+    background: white;
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+    border: 1px solid #e2e8f0;
+}
+.section-title {
+    color: #2d3748;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+}
+.stat-card {
+    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+    border-radius: 16px;
+    padding: 1.5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    border: 1px solid #e2e8f0;
+}
+.stat-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #74b9ff, #00cec9);
+    border-radius: 16px 16px 0 0;
+}
+.stat-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+.stat-number {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #2d3748;
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+.stat-label {
+    color: #718096;
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+.stat-icon {
+    font-size: 1.5rem;
+    opacity: 0.8;
+}
+.recent-section {
+    background: #fff;
+    border-radius: 28px;
+    padding: 2.5rem 2rem 2rem 2rem;
+    box-shadow: 0 6px 32px rgba(0,0,0,0.08);
+    border: 1px solid #e5eaf2;
+    max-width: 820px;
+    min-width: 400px;
+    margin: 0 auto 2rem auto;
+}
+.section-title {
+    color: #22223b;
+    font-size: 2rem;
+    font-weight: 800;
+    margin-bottom: 2.2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    letter-spacing: 0.01em;
+}
+.entries-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    width: 100%;
+    margin: 0 auto 2rem auto;
+}
+.entry-item {
+    background: #f8fafd;
+    border-radius: 18px;
+    padding: 1.7rem 2rem 1.7rem 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    border: 1.5px solid #e5eaf2;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+    width: 100%;
+    box-sizing: border-box;
+    transition: box-shadow 0.2s, border 0.2s;
+}
+.entry-item:hover {
+    box-shadow: 0 6px 24px rgba(0,0,0,0.10);
+    border: 1.5px solid #b2e0fc;
+}
+.entry-emoji {
+    font-size: 2.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 56px;
+    height: 56px;
+    background: #fff;
+    border-radius: 50%;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+    margin-right: 0.7rem;
+}
+.entry-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+}
+.entry-mood {
+    font-weight: 700;
+    color: #22223b;
+    font-size: 1.15rem;
+    margin-bottom: 0.1rem;
+}
+.entry-time {
+    color: #7b8794;
+    font-size: 1rem;
+    margin-bottom: 0.2rem;
+}
+.entry-notes {
+    color: #4a5568;
+    font-size: 1.05rem;
+    margin-top: 0.2rem;
+    font-style: italic;
+}
+.entry-notes.no-notes {
+    color: #a0aec0;
+}
+.view-all-btn {
+    margin-top: 0.5rem;
+    padding: 0.85rem 2.1rem;
+    background: #74b9ff;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 1.08rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    align-self: flex-start;
+    box-shadow: 0 2px 8px rgba(116,185,255,0.10);
+}
+.view-all-btn:hover {
+    background: #0984e3;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(116, 185, 255, 0.18);
+}
+</style>
+</body>
+</html> 
