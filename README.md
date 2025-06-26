@@ -16,6 +16,9 @@ Available as both a **desktop** and **web application**.
 ![Screen Recording](https://raw.githubusercontent.com/zahdineamine2003/AI-Companion_project/6a3af6fd47e225c3e45d18ff640d2344de0306d4/cyber_friend/video.gif)
 
 ---
+**🔵 Mood Tracker**  
+![Mood Tracker](https://github.com/zahdineamine2003/AI-Companion_project/blob/5b5ece607b34ae479f838c5be9549fdbbb0e7c87/cyber_friend/mood.png?raw=true)
+
 
 ## 🌟 Features
 
@@ -174,7 +177,11 @@ git push origin my-feature
 This project is licensed under the **MIT License**.
 
 ---
+## 📬 Contact
 
+**Email:** [zahdineamine23@gmail.com](mailto:zahdineamine23@gmail.com)
+**GitHub:** [zahdineamine2003](https://github.com/zahdineamine2003)
+---
 ## 🙏 Credits
 
 * UI inspired by modern productivity & wellness apps
