@@ -1,142 +1,188 @@
-# 🌐 AI Companion: Cyber Friend
 
-> A modern AI-powered companion for mental wellness, empathetic conversation, mood tracking, journaling, and avatar customization.  
-> Available as both a **desktop** and **web application**.
+# 🤖 AI Companion: Cyber Friend
+
+A modern **AI-powered mental wellness companion** for mood tracking, journaling, and chatting with a customizable avatar.  
+Available as both a **desktop** and **web application**.
 
 ---
 
-## 📸 Screenshots / Interface Preview
+## 📸 Interface Preview
+
 **🔵 Welcome Screen**  
 ![Welcome Screen](https://github.com/zahdineamine2003/AI-Companion_project/blob/39ec8917782ca54f6338b7cb41cd4546efe05613/cyber_friend/welcome.png?raw=true)
 
 ---
-
-## 🌟 Core Features
-
-- **🧍 Customizable Avatar**  
-  Choose your AI friend’s gender, name, and portrait.
-
-- **🧠 AI Chat Interface**  
-  Friendly, empathetic chat powered by **OpenAI** or a local LLM via **Hugging Face**.
-
-- **📊 Mood Tracker**  
-  Emoji-based daily mood selection with a modern stats and recent entries dashboard.
-
-- **🔐 Encrypted Journal**  
-  Secure and private journaling with daily notes and reflections.
-
-- **🎙️ Voice Interaction (Desktop)**  
-  Text-to-speech and speech-to-text support for fluid conversations.
-
-- **🪐 Offline-first Support**  
-  Works offline by default, with optional online AI for enhanced responses.
+**🟣 Screen Recording (Live Preview)**  
+![Screen Recording](https://raw.githubusercontent.com/zahdineamine2003/AI-Companion_project/6a3af6fd47e225c3e45d18ff640d2344de0306d4/cyber_friend/video.gif)
 
 ---
 
-## 🖥️ Web Application (Built with Flask)
+## 🌟 Features
 
-### 🧭 UI/UX Highlights
-
-- Responsive **sidebar navigation**
-- **Avatar setup** with emoji/video backgrounds
-- **Mood dashboard** with horizontal emoji selector and card-style stats
-- **Journal tab** for encrypted reflections
-- Scrollable **recent entries**
-- Fully **mobile responsive** interface
+- 🧍 Customizable avatar (name, gender, image)
+- 🧠 Chat interface powered by OpenAI or Hugging Face
+- 📊 Mood tracker with emoji and statistics
+- 🔐 Encrypted journaling for mental reflections
+- 🎙️ Voice interaction (speech-to-text & text-to-speech)
+- 🪐 Offline-first functionality
+- 📱 Mobile-responsive design
 
 ---
 
-## 🚀 Setup Instructions
+## 🛠️ Installation
 
-### 🔧 1. Install Dependencies
-
-Clone the repository and install required packages:
+### 1. Clone the Repository
 
 ```bash
 git clone https://github.com/your-username/cyber-friend.git
 cd cyber-friend
-pip install -r requirements.txt
-For the desktop version, also install:
+````
 
-bash
-Copier
-Modifier
+---
+
+### 2. Create a Virtual Environment (Optional)
+
+```bash
+python -m venv venv
+
+# For macOS/Linux:
+source venv/bin/activate
+
+# For Windows:
+venv\Scripts\activate
+```
+
+---
+
+### 3. Install Dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+#### For Desktop Version (Additional Packages):
+
+```bash
 pip install PyQt5 SpeechRecognition pyttsx3
-💻 2. Run the Desktop App
-bash
-Copier
-Modifier
+```
+
+---
+
+## 🚀 Running the App
+
+### 🖥️ Run the Desktop Version
+
+```bash
 python desktop_app.py
-🌐 3. Run the Web App
-bash
-Copier
-Modifier
+```
+
+---
+
+### 🌐 Run the Web Version
+
+```bash
 cd web_app
 python app.py
-Visit the web interface at: http://127.0.0.1:5000
+```
 
-## 📂 Folder Structure
-pgsql
-Copier
-Modifier
+Visit the app at: [http://127.0.0.1:5000](http://127.0.0.1:5000)
+
+---
+
+## 🧭 App Navigation
+
+| Tab     | Function                           |
+| ------- | ---------------------------------- |
+| Home    | Launch chat with your AI companion |
+| Mood    | Select and view your current mood  |
+| Journal | Write secure daily reflections     |
+| Avatar  | Customize your AI friend           |
+
+---
+
+## 🎯 Web API Endpoints
+
+| Endpoint            | Method   | Description                            |
+| ------------------- | -------- | -------------------------------------- |
+| `/`                 | GET      | Load main web UI                       |
+| `/api/chat`         | POST     | Chat with AI (`{messages, user_info}`) |
+| `/api/mood`         | GET/POST | Get or save today's mood               |
+| `/api/mood/history` | GET      | Retrieve all past moods                |
+| `/api/journal`      | GET/POST | Get or save journal entry              |
+| `/api/avatar`       | GET/POST | Manage avatar details                  |
+
+---
+
+## 📁 Project Structure
+
+```
 cyber-friend/
 │
-├── desktop_app/            # PyQt-based desktop application
-├── web_app/                # Flask web application
-│   ├── templates/          # HTML templates
+├── desktop_app/            # PyQt-based desktop app
+├── web_app/                # Flask web app
+│   ├── templates/          # HTML pages
 │   ├── static/             # CSS, JS, images
-│   └── app.py              # Main Flask backend
+│   └── app.py              # Flask routes & logic
 │
-├── data/                   # Local encrypted journal and mood storage
-├── assets/                 # Emoji assets, UI images
-├── README.md
-└── requirements.txt
-## 🔌 Web API Endpoints
-Endpoint	Method	Description
-/	GET	Load main web UI
-/api/chat	POST	Chat with AI ({messages, user_info})
-/api/mood	GET/POST	Get or save today's mood
-/api/mood/history	GET	Retrieve all past moods
-/api/journal	GET/POST	Get or save journal entry
-/api/avatar	GET/POST	Manage avatar details
+├── data/                   # Local encrypted mood/journal storage
+├── assets/                 # Emoji icons, UI images
+├── requirements.txt
+└── README.md
+```
 
-## 🔒 Security & Environment
+---
+
+## 🔐 Environment & Security
+
 No API keys are stored in the codebase.
 
-To integrate OpenAI or Hugging Face APIs, create a .env file like this:
+To integrate OpenAI or Hugging Face, create a `.env` file:
 
-env
-Copier
-Modifier
+```env
 OPENAI_API_KEY=your_openai_key
 HF_API_TOKEN=your_huggingface_token
-Make sure to add .env to your .gitignore to prevent it from being committed.
+```
+
+✅ Be sure to add `.env` to your `.gitignore`.
+
+---
 
 ## 🤝 Contributing
-Fork this repository.
 
-Create a new branch:
+We welcome contributions! Follow these steps:
 
-bash
-Copier
-Modifier
+1. **Fork** the repository
+2. Create a new branch:
+
+```bash
 git checkout -b my-feature
-Make your changes and commit them.
+```
 
-Push to your fork:
+3. Commit your changes
+4. Push to your fork:
 
-bash
-Copier
-Modifier
+```bash
 git push origin my-feature
-Open a pull request describing your changes.
+```
+
+5. Open a **pull request** and describe your updates
+
+---
 
 ## 📜 License
-This project is licensed under the MIT License.
+
+This project is licensed under the **MIT License**.
+
+---
 
 ## 🙏 Credits
-UI inspired by modern wellness and productivity apps.
 
-Emoji assets provided by Twemoji.
+* UI inspired by modern productivity & wellness apps
+* Emoji assets from [Twemoji](https://twemoji.twitter.com)
+* AI powered by [OpenAI](https://openai.com) and [Hugging Face](https://huggingface.co)
 
-AI powered by OpenAI and Hugging Face.
+---
+
+✨ *Let your cyber companion help you reflect, connect, and grow.*
+
+
