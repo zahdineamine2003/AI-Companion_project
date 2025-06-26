@@ -5,7 +5,8 @@
 
 ---
 
-📸 **Screenshots / Interface Preview**
+## 📸 Screenshots / Interface Preview
+
 *(Add screenshots or screen recordings of your web/desktop UI below this line)*
 
 ---
@@ -27,8 +28,8 @@
 - **🎙️ Voice Interaction (Desktop)**  
   Text-to-speech and speech-to-text support for fluid conversations.
 
-- **🪐 Offline-first**  
-  Works offline by default with optional online AI for enhanced responses.
+- **🪐 Offline-first Support**  
+  Works offline by default, with optional online AI for enhanced responses.
 
 ---
 
@@ -47,7 +48,7 @@
 
 ## 🚀 Setup Instructions
 
-### 1. 📦 Install Dependencies
+### 🔧 1. Install Dependencies
 
 Clone the repository and install required packages:
 
@@ -55,20 +56,24 @@ Clone the repository and install required packages:
 git clone https://github.com/your-username/cyber-friend.git
 cd cyber-friend
 pip install -r requirements.txt
-For desktop version, ensure PyQt5, SpeechRecognition, and pyttsx3 are installed.
+For the desktop version, also install:
 
-2. 🖥️ Run the Desktop App
+bash
+Copier
+Modifier
+pip install PyQt5 SpeechRecognition pyttsx3
+💻 2. Run the Desktop App
 bash
 Copier
 Modifier
 python desktop_app.py
-3. 🌐 Run the Web App
+🌐 3. Run the Web App
 bash
 Copier
 Modifier
 cd web_app
 python app.py
-Visit: http://127.0.0.1:5000/
+Visit the web interface at: http://127.0.0.1:5000
 
 📂 Folder Structure
 pgsql
@@ -86,7 +91,7 @@ cyber-friend/
 ├── assets/                 # Emoji assets, UI images
 ├── README.md
 └── requirements.txt
-🧠 Web API Endpoints
+🔌 Web API Endpoints
 Endpoint	Method	Description
 /	GET	Load main web UI
 /api/chat	POST	Chat with AI ({messages, user_info})
@@ -98,32 +103,40 @@ Endpoint	Method	Description
 🔒 Security & Environment
 No API keys are stored in the codebase.
 
-For OpenAI/Hugging Face integration, create a .env file:
+To integrate OpenAI or Hugging Face APIs, create a .env file:
 
-ini
+env
 Copier
 Modifier
 OPENAI_API_KEY=your_openai_key
 HF_API_TOKEN=your_huggingface_token
-Ensure .env is added to your .gitignore.
+Ensure the .env file is listed in your .gitignore to prevent exposure.
 
 🤝 Contributing
 Fork this repository.
 
-Create a new branch: git checkout -b my-feature.
+Create a new branch:
 
+bash
+Copier
+Modifier
+git checkout -b my-feature
 Make your changes and commit them.
 
-Push to your fork: git push origin my-feature.
+Push to your fork:
 
-Create a pull request and describe your changes.
+bash
+Copier
+Modifier
+git push origin my-feature
+Create a pull request describing your changes.
 
 📜 License
-Licensed under the MIT License.
+This project is licensed under the MIT License.
 
 🙏 Credits
-UI inspired by wellness/productivity apps.
+UI inspired by modern wellness and productivity apps.
 
-Emoji assets by Twemoji.
+Emoji assets provided by Twemoji.
 
-AI models by OpenAI & Hugging Face.
+AI powered by OpenAI and Hugging Face.
