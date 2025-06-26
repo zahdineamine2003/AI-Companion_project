@@ -75,7 +75,7 @@ cd web_app
 python app.py
 Visit the web interface at: http://127.0.0.1:5000
 
-📂 Folder Structure
+## 📂 Folder Structure
 pgsql
 Copier
 Modifier
@@ -91,7 +91,7 @@ cyber-friend/
 ├── assets/                 # Emoji assets, UI images
 ├── README.md
 └── requirements.txt
-🔌 Web API Endpoints
+## 🔌 Web API Endpoints
 Endpoint	Method	Description
 /	GET	Load main web UI
 /api/chat	POST	Chat with AI ({messages, user_info})
@@ -100,19 +100,19 @@ Endpoint	Method	Description
 /api/journal	GET/POST	Get or save journal entry
 /api/avatar	GET/POST	Manage avatar details
 
-🔒 Security & Environment
+## 🔒 Security & Environment
 No API keys are stored in the codebase.
 
-To integrate OpenAI or Hugging Face APIs, create a .env file:
+To integrate OpenAI or Hugging Face APIs, create a .env file like this:
 
 env
 Copier
 Modifier
 OPENAI_API_KEY=your_openai_key
 HF_API_TOKEN=your_huggingface_token
-Ensure the .env file is listed in your .gitignore to prevent exposure.
+Make sure to add .env to your .gitignore to prevent it from being committed.
 
-🤝 Contributing
+## 🤝 Contributing
 Fork this repository.
 
 Create a new branch:
@@ -129,12 +129,12 @@ bash
 Copier
 Modifier
 git push origin my-feature
-Create a pull request describing your changes.
+Open a pull request describing your changes.
 
-📜 License
+## 📜 License
 This project is licensed under the MIT License.
 
-🙏 Credits
+## 🙏 Credits
 UI inspired by modern wellness and productivity apps.
 
 Emoji assets provided by Twemoji.
